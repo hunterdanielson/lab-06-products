@@ -20,7 +20,8 @@ function renderGame(game) {
     
     const button = document.createElement('button');
     button.textContent = 'Add';
-    button.value = game.code;
+    button.id = game.id;
+    button.value = game.id;
     p.appendChild(button);
 
     li.appendChild(p);

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo|Oswald');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', sans-serif;
+    background: #eee;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+header nav a {
+    color: white;
+    border: 1px solid white;
+    padding: 3px 8px;
+    text-decoration: none;
+    transition: color 200ms ease-in;
+}
+
+header nav a:hover {
+    color: coral;
+    border: 1px solid coral;
+}
+
+header, main {
+    padding: 8px;
+}
+
+h1 {
+    font-family: 'Oswald';
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    text-align: center;
+}

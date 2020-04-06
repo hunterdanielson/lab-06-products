@@ -41,7 +41,7 @@ const pokemonSword = {
 const marioKart8 = {
     id: 'marioKart8',
     name: 'Mario Kart 8',
-    image: 'marioKart8.jpeg',
+    image: 'marioKart8.png',
     description: 'Classic mario kart, with some modern twists',
     category: 'switch',
     price: 30.00,
@@ -52,8 +52,7 @@ const animalCrossing = {
     image: 'animalCrossing.jpg',
     description: 'Animal Crossing on a modern console, lets you visit friends islands',
     category: 'switch',
-    price: .76,
-    cost: .75
+    price: 50.00,
 };
 const games = [
     pokemonEmerald,
