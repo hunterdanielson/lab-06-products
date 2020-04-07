@@ -1,9 +1,5 @@
+import { addDollar } from '../common/utils.js';
 
-export function addDollar(price) {
-    const readablePrice = `$${Number(price).toFixed(2)}`;
-    
-    return readablePrice;
-}
 
 export function renderLine(cartItem, product) {
     const tr = document.createElement('tr');
@@ -19,7 +15,7 @@ export function renderLine(cartItem, product) {
     priceTd.textContent = addDollar(product.price);
 
     const totalTd = document.createElement('td');
-    const totalPrice = cartItem.price * cartItem.quantity;
+    const totalPrice = product.price * cartItem.quantity;
     totalTd.textContent = addDollar(totalPrice);
     totalTd.classList.add('line-item-total');
 

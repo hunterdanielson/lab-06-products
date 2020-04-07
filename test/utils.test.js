@@ -1,4 +1,6 @@
-import { findById, calcLineItem } from '../common/utils.js';
+import { findById, calcLineItem, calcGrandTotal } from '../common/utils.js';
+import games from '../data/games.js';
+import cart from '../data/cart.js';
 
 const test = QUnit.test;
 
@@ -39,6 +41,7 @@ test('Testing util findById', function(assert) {
     // Make assertions about what is expected valid result
     assert.equal(result.name, expected);
 });
+
 test('Testing util calcLineItem', function(assert) {
     //Arrange
     // Set up your parameters and expectations
@@ -49,6 +52,23 @@ test('Testing util calcLineItem', function(assert) {
     //Act 
     // Call the function you're testing and set the result to a const
     const result = calcLineItem(testAmount, testQuantity);
+   
+
+    //Assert
+    // Make assertions about what is expected valid result
+    assert.equal(result, expected);
+});
+
+test('Testing util calcGrandTotal', function(assert) {
+    //Arrange
+    // Set up your parameters and expectations
+    
+
+    const expected = 245;
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const result = calcGrandTotal(cart, games);
    
 
     //Assert
