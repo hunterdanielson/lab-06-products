@@ -1,7 +1,8 @@
-export default function findById(passedarray, id) {
-    // passedarray.forEach(element => {
-    //     if (element.id === id) {
-    //         return element;
+export function findById(passedarray, id) {
+    // can't get forEach to work... not sure why
+    // passedarray.forEach(item => {
+    //     if (item.id === id) {
+    //         return item;
     //     } else {
     //         return null;
     //     }
@@ -15,6 +16,17 @@ export default function findById(passedarray, id) {
             
         }
     }
-    
+
     return null;
+}
+
+export function calcLineItem(quantity, price) {
+
+    const total = rounding(quantity * price);
+    return total;
+    
+}
+
+function rounding(number) {
+    return Math.round(number * 100) / 100;
 }
