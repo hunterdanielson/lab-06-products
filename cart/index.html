@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game Products</title>
     <link rel="stylesheet" href="../common/main.css">
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 <body>
     <header>
@@ -14,15 +14,25 @@
         <nav>
             <a href="../">Home</a>
             <a href="./">Buy Games</a>
-            <a href="../cart/index.html">Shopping Cart</a>
         </nav>
     </header>
 
     <main>
-        <h2>Games</h2>
-        <ul id="games"></ul>
+        <h2>Cart</h2>
+        <table id="cart">
+            <tr>
+                <th>Game</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </table>
+        <footer>
+            <h3>Grand total: <span id="grand-total"></span></h3>
+            <button id="place-order-button">Place Order</button>
+        </footer>
     </main>
 
-    <script src="products.js" type="module"></script>
+    <script src="cart.js" type="module"></script>
 </body>
 </html>
