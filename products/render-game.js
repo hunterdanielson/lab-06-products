@@ -14,17 +14,33 @@ function renderGame(game) {
     img.alt = game.name + ' image';
     li.appendChild(img);
 
+    // create dropdown
+    const select = document.createElement('select');
+    select.id = 'select';
+
+    // to get the value it is select.value
+    li.appendChild(select);
+
+    // loop through and add 100 options to the dropdown
+    for (let i = 1; i < 100; i++) {
+        const option = document.createElement('option');
+        option.textContent = `${i}`;
+        option.value = i;
+        select.appendChild(option);
+    }
+
     const p = document.createElement('p');
     p.className = 'price';
 
     const gamePrice = addDollar(game.price);
     p.textContent = gamePrice;
-    
+
     const button = document.createElement('button');
     button.textContent = 'Add';
     button.id = game.id;
     button.value = game.id;
     p.appendChild(button);
+
     // lab 8: add event listener to buttons
     button.addEventListener('click', () => {
         // grab the Cart from local storage if it exists
@@ -50,8 +66,8 @@ function renderGame(game) {
             lineItem = {
                 // set line item id to current game id
                 id: game.id,
-                // initialize quantity to one, since this if statement only happens if it doesn't exsist
-                quantity: 1,
+                // initialize quantity to selected value, since this if statement only happens if it doesn't exsist
+                quantity: select.value,
             };
             // push the line item onto the cart
             cart.push(lineItem);
@@ -59,7 +75,7 @@ function renderGame(game) {
         // after the if statement the line item should exist on the cart
         // if it exists on the cart, increment its value 
         else {
-            lineItem.quantity++;
+            lineItem.quantity += select.value;
         }
 
         // now that we have done the stuff needed, set localCart = to the string version of cart
@@ -69,7 +85,7 @@ function renderGame(game) {
         localStorage.setItem('Cart', localCart);
 
         // alert the user when something is added to the cart
-        alert(`1 ${game.name} was added to the cart.`);
+        alert(`${select.value} ${game.name} were added to the cart.`);
 
     });
 
