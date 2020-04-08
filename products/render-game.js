@@ -1,4 +1,4 @@
-import { findById } from '../common/utils.js';
+import { findById, addDollar } from '../common/utils.js';
 
 function renderGame(game) {
     const li = document.createElement('li');
@@ -17,8 +17,8 @@ function renderGame(game) {
     const p = document.createElement('p');
     p.className = 'price';
 
-    const usd = '$' + game.price.toFixed(2);
-    p.textContent = usd;
+    const gamePrice = addDollar(game.price);
+    p.textContent = gamePrice;
     
     const button = document.createElement('button');
     button.textContent = 'Add';
