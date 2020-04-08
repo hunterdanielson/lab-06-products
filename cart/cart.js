@@ -1,11 +1,25 @@
 import { renderLine } from './render-line-item.js';
-import cart from '../data/cart.js';
 import games from '../data/games.js';
 import { findById, calcGrandTotal, addDollar } from '../common/utils.js';
 
 // grab dom elements
 const cartData = document.getElementById('cart');
 const grandTotal = document.getElementById('grand-total');
+
+// grab cart from local storage
+let localCart = localStorage.getItem('Cart');
+
+// initialize cart 
+let cart;
+
+// if local cart exists put its data in cart variable in object format
+if (localCart) {
+    // convert localCart to object and put it in the cart variable
+    cart = JSON.parse(localCart);
+} else {
+    // if it doesn't exist initialize to empty array
+    cart = [];
+}
 
 // go through the cart
 for (let i = 0; i < cart.length; i++) {
