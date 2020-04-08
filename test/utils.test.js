@@ -1,6 +1,4 @@
 import { findById, calcLineItem, calcGrandTotal } from '../common/utils.js';
-import games from '../data/games.js';
-import cart from '../data/cart.js';
 
 const test = QUnit.test;
 
@@ -62,13 +60,35 @@ test('Testing util calcLineItem', function(assert) {
 test('Testing util calcGrandTotal', function(assert) {
     //Arrange
     // Set up your parameters and expectations
+    // set them up similar to the objects/arrays I will be using
+    const itemsCart = [{
+        id: 'item1',
+        quantity: 2
+    }, {
+        id: 'item2',
+        quantity: 4
+    }];
     
+    const item1 = {
+        id: 'item1',
+        price: 3.00,
+    };
+    const item2 = {
+        id: 'item2',
+        price: 1.00,
+    };
 
-    const expected = 245;
+    const arrayOfObjects = [
+        item1,
+        item2
+    ];
+
+
+    const expected = 10;
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const result = calcGrandTotal(cart, games);
+    const result = calcGrandTotal(itemsCart, arrayOfObjects);
    
 
     //Assert

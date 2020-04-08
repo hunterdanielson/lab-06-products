@@ -37,14 +37,21 @@ export function addDollar(price) {
     return readablePrice;
 }
 
+// need the id from both, quantity from cart, price from games
 export function calcGrandTotal(cart, games) {
+    // initialize value to 0
     let grandTotal = 0;
-
+    // loop through the cart
     for (let i = 0; i < cart.length; i++) {
+        // grab the item
         const lineItem = cart[i];
+        // match the cart item to game item
         const game = findById(games, lineItem.id);
+        // calculate the total for that line, game * quantity
         const lineTotal = calcLineItem(lineItem.quantity, game.price);
+        // add that line total to the grand total
         grandTotal += lineTotal;
     }
+    // only want 2 decimal places
     return rounding(grandTotal);
 }
