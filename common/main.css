@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Heebo', sans-serif;
-    background: #eee;
+    background-image: url('../assets/cool-background.png');
     margin: 0;
 }
 

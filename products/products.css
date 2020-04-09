@@ -40,19 +40,27 @@
     
 }
 
+select {
+    position: absolute;
+    left: 41%;
+    bottom: 6px;
+    z-index: 1;
+    
+}
+
 .price {
     font-size: 0.9rem;
     position: absolute;
     bottom: 0;
-    left: 0; 
-    right: 0;
+    left: 5%; 
+    
+    
     margin-bottom: 5px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    
 }
 
 .price button {
+    margin-left: 100px;
     transition: color 200ms ease-in-out;
 }
 .price button:hover {
