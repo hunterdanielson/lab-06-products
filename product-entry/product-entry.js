@@ -7,8 +7,7 @@ const newProductForm = document.getElementById('add-new-product');
 newProductForm.addEventListener('submit', (event) => {
     // to stop it from reloading the page on submission
     event.preventDefault();
-    console.log('form clicked');
-
+    
     // getting form data
     const productFormData = new FormData(newProductForm);
 
@@ -30,5 +29,8 @@ newProductForm.addEventListener('submit', (event) => {
     const addedProductList = addProduct(product, productList);
     // set new product list in storage
     setProducts(addedProductList);
+
+    // reset the form
+    newProductForm.reset();
 
 });
