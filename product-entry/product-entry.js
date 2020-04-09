@@ -21,7 +21,6 @@ newProductForm.addEventListener('submit', (event) => {
         price: productFormData.get('price')
     };
 
-
     // get the products list
     const productList = getProducts();
     // call add product funtion, passing current product and product list to add it to
