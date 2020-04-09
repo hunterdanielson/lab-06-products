@@ -1,6 +1,7 @@
 import { renderLine } from './render-line-item.js';
 import games from '../data/games.js';
 import { findById, calcGrandTotal, addDollar } from '../common/utils.js';
+import { clearCart } from '../cart-api.js';
 
 // grab dom elements
 const cartData = document.getElementById('cart');
@@ -42,10 +43,5 @@ const orderTotal = calcGrandTotal(cart, games);
 grandTotal.textContent = addDollar(orderTotal);
 
 placeOrderButton.addEventListener('click', () => {
-    localStorage.removeItem('Cart');
-    // alert that the order is placed
-    // the true, 2 make it look nicer in the alert
-    alert('Order placed: \n' + JSON.stringify(cart, true, 2));
-    // redirect user to homepage
-    window.location.replace('../index.html');
+    clearCart(cart);
 });

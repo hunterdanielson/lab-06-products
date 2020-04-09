@@ -1,4 +1,5 @@
 import { findById, addDollar } from '../common/utils.js';
+import { getCart, addToCart } from '../cart-api.js';
 
 function renderGame(game) {
     const li = document.createElement('li');
@@ -43,20 +44,8 @@ function renderGame(game) {
 
     // lab 8: add event listener to buttons
     button.addEventListener('click', () => {
-        // grab the Cart from local storage if it exists
-        let localCart = localStorage.getItem('Cart');
 
-        // initialize empty variable
-        let cart;
-
-        // if the cart does exist in storage, 
-        // set the variable cart equal to it in object form (not string form)
-        if (localCart) {
-            cart = JSON.parse(localCart);
-        } else {
-            // if it does not exist in local storage, set cart = to an empty cart
-            cart = [];
-        }
+        let cart = getCart();
 
         // set the line item = to the item whose id was pushed
         let lineItem = findById(cart, game.id);
@@ -78,14 +67,8 @@ function renderGame(game) {
             lineItem.quantity += select.value;
         }
 
-        // now that we have done the stuff needed, set localCart = to the string version of cart
-        // needed in order to push to local storage
-        localCart = JSON.stringify(cart);
-        // put the localCart in localStorage under the name "Cart"
-        localStorage.setItem('Cart', localCart);
+        addToCart(cart);
 
-        // alert the user when something is added to the cart
-        alert(`${select.value} ${game.name} were added to the cart.`);
 
     });
 
