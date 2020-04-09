@@ -28,6 +28,7 @@ newProductForm.addEventListener('submit', (event) => {
     const addedProductList = addProduct(product, productList);
     // set new product list in storage
     setProducts(addedProductList);
+    location.reload();
 
     // reset the form
     newProductForm.reset();
