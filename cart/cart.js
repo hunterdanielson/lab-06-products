@@ -1,7 +1,10 @@
 import { renderLine } from './render-line-item.js';
-import games from '../data/games.js';
 import { findById, calcGrandTotal, addDollar } from '../common/utils.js';
 import { clearCart } from '../cart-api.js';
+import { getProducts } from '../product-entry-api.js';
+
+// get games from local storage and not hard coded data
+const games = getProducts();
 
 // grab dom elements
 const cartData = document.getElementById('cart');

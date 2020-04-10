@@ -11,7 +11,13 @@ function renderGame(game) {
     li.appendChild(h3);
 
     const img = document.createElement('img');
-    img.src = '../assets/' + game.image;
+
+    if (game.image.includes('http') || game.image.includes('base64')) {
+        img.src = game.image;
+    } else {
+        img.src = '../assets/' + game.image;
+    }
+
     img.alt = game.name + ' image';
     li.appendChild(img);
 
@@ -22,7 +28,7 @@ function renderGame(game) {
     // to get the value it is select.value
     li.appendChild(select);
 
-    // loop through and add 100 options to the dropdown
+    // loop through and add 99 options to the dropdown
     for (let i = 1; i < 100; i++) {
         const option = document.createElement('option');
         option.textContent = `${i}`;
